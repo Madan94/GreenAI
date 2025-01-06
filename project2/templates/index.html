@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESG Project Rankings</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <h1>Top Recommended Project</h1>
+    <p><strong>Project Name:</strong> {{ top_project['Project'] }}</p>
+    <p><strong>ESG Score:</strong> {{ top_project['ESG_Score'] }}</p>
+    <p><strong>ROI:</strong> {{ top_project['ROI'] }}</p>
+    <p><strong>Investment:</strong> ₹{{ top_project['Investment_Crore'] }} Cr</p>
+    <p><strong>Rank Score:</strong> {{ top_project['Rank_Score'] }}</p>
+
+    <hr>
+
+    <h2>All Projects</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>ESG Score</th>
+                <th>ROI</th>
+                <th>Investment (Cr)</th>
+                <th>Rank Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in all_projects %}
+            <tr>
+                <td>{{ project['Project'] }}</td>
+                <td>{{ project['ESG_Score'] }}</td>
+                <td>{{ project['ROI'] }}</td>
+                <td>{{ project['Investment_Crore'] }}</td>
+                <td>{{ project['Rank_Score'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Ranking Chart</h2>
+    <a href="/chart">View Ranking Chart</a>
+</body>
+</html>
